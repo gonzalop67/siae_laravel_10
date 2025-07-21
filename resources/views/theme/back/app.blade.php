@@ -107,6 +107,13 @@
         });
     </script>
     <!--end::OverlayScrollbars Configure-->
+    <!--Plugins -->
+    <script src="{{ asset('assets/back/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/back/libs/jquery-validation/dist/localization/messages_es.js') }}"></script>
+    <!--Plugins de paginas especificas -->
+    @yield("scriptsPlugins")
+    <!--Scripts de paginas especificas -->
+    @yield("scripts")
 </body>
 
 </html>

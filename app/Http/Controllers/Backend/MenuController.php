@@ -29,7 +29,7 @@ class MenuController extends Controller
      */
     public function crear()
     {
-        // return view('theme.back.menu.crear');
+        return view('theme.back.menu.crear');
     }
 
     /**
@@ -44,9 +44,11 @@ class MenuController extends Controller
     //     Menu::create($validado);
     //     return redirect()->route('menu.crear')->with('mensaje', 'Menu guardado correctamente');
     // }
-    public function guardar(Request $request)
+    public function guardar(ValidacionMenu $request)
     {
-        //
+        $validado = $request->validated();
+        Menu::create($validado);
+        return redirect()->route('menu.crear')->with('mensaje', 'Menu guardado correctamente');
     }
 
     /**

@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{ url('assets/back/css/adminlte.css') }}">
     <!--end::Required Plugin(AdminLTE)-->
 
+    <link rel="stylesheet" href="{{ url('assets/back/css/tutoblog.css') }}">
+
     <!-- apexcharts -->
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css" integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"> --}}
 
@@ -59,7 +61,7 @@
                 <!--begin::Container-->
                 <div class="container-fluid">
                     {{-- Aqui va el contenido de la página --}}
-                    @yield('content')
+                    @yield('contenido')
                 </div>
                 <!--end::App Content-->
         </main>
@@ -107,13 +109,17 @@
         });
     </script>
     <!--end::OverlayScrollbars Configure-->
-    <!--Plugins -->
-    <script src="{{ asset('assets/back/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('assets/back/libs/jquery-validation/dist/localization/messages_es.js') }}"></script>
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="{{ asset('assets/back/libs/jquery/jquery.min.js') }}"></script>
     <!--Plugins de paginas especificas -->
     @yield("scriptsPlugins")
     <!--Scripts de paginas especificas -->
     @yield("scripts")
+    <!--Plugins -->
+    <script src="{{ asset('assets/back/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('assets/back/libs/jquery-validation/dist/localization/messages_es.js') }}"></script>
+    <script src="{{ asset('assets/back/js/tutoblog.js') }}"></script>
 </body>
 
 </html>

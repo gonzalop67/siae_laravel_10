@@ -17,9 +17,9 @@ class MenuController extends Controller
      */
     public function index()
     {
-        // $menus = Menu::getMenu();
-        // return view('theme.back.menu.index', compact('menus'));
-        return view('theme.back.menu.index');
+        $menus = Menu::getMenu();
+        // dd($menus);
+        return view('theme.back.menu.index', compact('menus'));
     }
 
     /**
@@ -38,12 +38,6 @@ class MenuController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    // public function guardar(ValidacionMenu $request)
-    // {
-    //     $validado = $request->validated();
-    //     Menu::create($validado);
-    //     return redirect()->route('menu.crear')->with('mensaje', 'Menu guardado correctamente');
-    // }
     public function guardar(ValidacionMenu $request)
     {
         $validado = $request->validated();
@@ -59,8 +53,8 @@ class MenuController extends Controller
      */
     public function editar($id)
     {
-        // $data = Menu::findOrFail($id);
-        // return view('theme.back.menu.editar', compact('data'));
+        $data = Menu::findOrFail($id);
+        return view('theme.back.menu.editar', compact('data'));
     }
 
     /**
@@ -70,14 +64,10 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    // public function actualizar(ValidacionMenu $request, $id)
-    // {
-    //     Menu::findOrFail($id)->update($request->validated());
-    //     return redirect()->route('menu')->with('mensaje', 'Menú actualizado con éxito');
-    // }
-    public function actualizar(Request $request, $id)
+    public function actualizar(ValidacionMenu $request, $id)
     {
-
+        Menu::findOrFail($id)->update($request->validated());
+        return redirect()->route('menu')->with('mensaje', 'Menú actualizado con éxito');
     }
 
     /**
@@ -88,17 +78,17 @@ class MenuController extends Controller
      */
     public function eliminar($id)
     {
-        // Menu::destroy($id);
-        // return redirect()->route('menu')->with('mensaje', 'Menú eliminado con éxito');
+        Menu::destroy($id);
+        return redirect()->route('menu')->with('mensaje', 'Menú eliminado con éxito');
     }
 
     public function guardarOrden(Request $request)
     {
-        // if ($request->ajax()) {
-        //     Menu::guardarOrden($request->menu);
-        //     return response()->json(['respuesta' => 'ok']);
-        // } else {
-        //     abort(404);
-        // }
+        if ($request->ajax()) {
+            Menu::guardarOrden($request->menu);
+            return response()->json(['respuesta' => 'ok']);
+        } else {
+            abort(404);
+        }
     }
 }

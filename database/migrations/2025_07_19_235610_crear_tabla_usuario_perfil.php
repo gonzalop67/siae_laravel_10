@@ -16,8 +16,6 @@ return new class extends Migration
             $table->foreign('id_usuario', 'fk_usuarioperfil_usuario')->references('id_usuario')->on('sw_usuario')->onDelete('cascade')->onUpdate('restrict');
             $table->unsignedBigInteger('id_perfil');
             $table->foreign('id_perfil', 'fk_usuarioperfil_perfil')->references('id_perfil')->on('sw_perfil')->onDelete('restrict')->onUpdate('restrict');
-            $table->charset = 'utf8mb4';
-            $table->collation = 'utf8mb4_spanish_ci';
         });
     }
 

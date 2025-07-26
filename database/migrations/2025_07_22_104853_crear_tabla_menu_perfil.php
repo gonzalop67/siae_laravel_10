@@ -12,12 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sw_menu_perfil', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_menu');
-            $table->foreign('id_menu', 'fk_menuperfil_menu')->references('id_menu')->on('sw_menu')->onDelete('restrict')->onUpdate('restrict');
-            $table->unsignedBigInteger('id_perfil');
-            $table->foreign('id_perfil', 'fk_menuperfil_perfil')->references('id_perfil')->on('sw_perfil')->onDelete('restrict')->onUpdate('restrict');
-            $table->charset = 'utf8mb4';
-            $table->collation = 'utf8mb4_spanish_ci';
+            $table->unsignedBigInteger('menu_id');
+            $table->foreign('menu_id', 'fk_menuperfil_menu')->references('id')->on('sw_menu')->onDelete('cascade')->onUpdate('restrict');
+            $table->unsignedBigInteger('perfil_id');
+            $table->foreign('perfil_id', 'fk_menuperfil_perfil')->references('id_perfil')->on('sw_perfil')->onDelete('restrict')->onUpdate('restrict');
         });
     }
 

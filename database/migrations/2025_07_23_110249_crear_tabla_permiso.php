@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sw_menu', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedInteger('mnu_padre')->nullable();
-            $table->string('mnu_texto', 32);
-            $table->string('mnu_url', 64);
-            $table->string('mnu_icono', 25)->nullable();
-            $table->unsignedInteger('mnu_orden')->default(1);
+        Schema::create('sw_permiso', function (Blueprint $table) {
+            $table->id('id_permiso');
+            $table->string('pe_nombre', 50);
+            $table->string('pe_slug', 50);
+            $table->timestamps();
             $table->charset = 'utf8mb4';
             $table->collation = 'utf8mb4_spanish_ci';
         });
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sw_menu');
+        Schema::dropIfExists('sw_permiso');
     }
 };

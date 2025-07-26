@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Models\Perfil;
+use App\Models\Backend\Perfil;
 use App\Models\Usuario;
 use Illuminate\Support\Str;
 use Illuminate\Console\Command;

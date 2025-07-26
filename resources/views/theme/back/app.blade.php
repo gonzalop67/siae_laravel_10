@@ -33,6 +33,8 @@
     <link rel="stylesheet" href="{{ url('assets/back/css/adminlte.css') }}">
     <!--end::Required Plugin(AdminLTE)-->
 
+    <!-- CSS DINAMICO -->
+    @yield('styles')
     <link rel="stylesheet" href="{{ url('assets/back/css/tutoblog.css') }}">
 
     <!-- apexcharts -->

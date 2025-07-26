@@ -8,23 +8,20 @@
     <div class="row g-4">
         <!-- Start column -->
         <div class="col-lg-12">
-            @if ($mensaje = session('mensaje'))
-                <x-alert tipo="success" :mensaje="$mensaje" />
-            @endif
             @if ($errors->any())
                 <x-alert tipo="danger" :mensaje="$errors" />
             @endif
             <div class="card card-primary card-outline mt-3">
                 <div class="card-header">
                     <div class="card-title">
-                        <h4 class="mb-0">Crear Menús</h4>
+                        <h4 class="mb-0">Editar Menú</h4>
                     </div>
                     <div class="card-tools">
                         <a href="{{ route('menu') }}" type="button" class="btn btn-primary btn-sm">Volver al Listado</a>
                     </div>
                 </div>
-                <form id="form-general" action="{{ route('menu.guardar') }}" method="POST">
-                    @csrf
+                <form id="form-general" action="{{ route('menu.actualizar', $data->id) }}" method="POST">
+                    @csrf @method('put')
                     <div class="card-body">
                         @include('theme.back.menu.form')
                     </div>

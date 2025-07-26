@@ -22,9 +22,21 @@ class ValidacionMenu extends FormRequest
     public function rules(): array
     {
         return [
-            'mnu_texto' => 'required|max:50',
+            'mnu_texto' => 'required|max:50|unique:sw_menu,mnu_texto,' . $this->route('id'),
             'mnu_url' => 'required|max:100',
             'mnu_icono' => 'nullable|max:50',
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'mnu_texto.required' => 'El campo texto es obligatorio.',
+            'mnu_texto.max' => 'El campo texto no debe exceder los 50 caracteres.',
+            'mnu_texto.unique' => 'El texto del menú ya existe.',
+            'mnu_url.required' => 'El campo URL es obligatorio.',
+            'mnu_url.max' => 'El campo URL no debe exceder los 100 caracteres.',
+            'mnu_icono.max' => 'El campo icono no debe exceder los 50 caracteres.',
         ];
     }
 }

@@ -1,13 +1,13 @@
 <div class="row mb-3">
     <label for="mnu_texto" class="col-sm-2 col-form-label text-end requerido">Nombre</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="mnu_texto" id="mnu_texto" value="{{ old("mnu_texto") }}" maxlength="50" required autofocus>
+        <input type="text" class="form-control" name="mnu_texto" id="mnu_texto" value="{{ old("mnu_texto", $data->mnu_texto ?? '') }}" maxlength="50" required autofocus>
     </div>
 </div>
 <div class="row mb-3">
     <label for="mnu_url" class="col-sm-2 col-form-label text-end requerido">Url</label>
     <div class="col-sm-10">
-        <input type="text" class="form-control" name="mnu_url" id="mnu_url" value="{{ old("mnu_url") }}" maxlength="100" required>
+        <input type="text" class="form-control" name="mnu_url" id="mnu_url" value="{{ old("mnu_url", $data->mnu_url ?? '') }}" maxlength="100" required>
     </div>
 </div>
 <div class="row mb-3">
